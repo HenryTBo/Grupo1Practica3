@@ -2,9 +2,11 @@
 include_once __DIR__ . '/../layout.php';
 include_once __DIR__ . '/../../Controller/consultaController.php';
 
-$consulta = ConsultarCompras();
+$consulta = [];
 
-
+if (isset($_POST['btnConsultar'])) {
+    $consulta = ConsultarCompras();
+}
 ?>
 
 

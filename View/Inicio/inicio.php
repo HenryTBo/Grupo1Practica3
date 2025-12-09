@@ -21,7 +21,7 @@
         <section class="page-section" id="opciones">
             <div class="container text-center">
 
-                <h2 class="text-uppercase text-secondary mb-4">
+                <h2 class="text-uppercase text-secondary mb-4"> 
                     ¡Bienvenido al Sistema!
                 </h2>
                 <p class="mb-5 fs-5">
