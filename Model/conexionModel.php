@@ -1,14 +1,30 @@
 <?php
 
-    function OpenConnection()
-        {
-            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-            return mysqli_connect("localhost", "root", "", "practica3");
-        }
+function OpenConnection()
+{
+    // Para que mysqli lance excepciones si algo sale mal
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-        function CloseConnection($context)
-        {
-            $context -> close();
-        }
+    $server   = "localhost";
+    $user     = "root";
+    $password = "dannyJP_2021";
+    $database = "practica3";
 
-?>
+    $conn = mysqli_connect($server, $user, $password, $database);
+
+    if (!$conn) {
+        die("Error de conexión a la base de datos");
+    }
+
+    // Soporte para tildes y eñes
+    $conn->set_charset("utf8mb4");
+
+    return $conn;
+}
+
+function CloseConnection($context)
+{
+    if ($context) {
+        $context->close();
+    }
+}

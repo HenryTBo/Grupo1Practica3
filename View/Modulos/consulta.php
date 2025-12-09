@@ -9,9 +9,8 @@ if (isset($_POST['btnConsultar'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
     <?php showCss(); ?>
     <link href="../css/estilos.css" rel="stylesheet" />
@@ -32,14 +31,12 @@ if (isset($_POST['btnConsultar'])) {
                         <span>Consulta</span>
                     </div>
 
-                    
                     <form method="POST" class="mb-4 text-center">
                         <button type="submit" name="btnConsultar" class="btn btn-primary">
-                            Consultar 
+                            Consultar
                         </button>
                     </form>
 
-                   
                     <table class="table table-bordered consulta-table mb-0">
                         <thead>
                             <tr>
@@ -50,7 +47,6 @@ if (isset($_POST['btnConsultar'])) {
                                 <th>Estado</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <?php if (!empty($consulta)): ?>
                                 <?php foreach ($consulta as $fila): ?>
@@ -64,7 +60,9 @@ if (isset($_POST['btnConsultar'])) {
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <tr>
-                                    <td colspan="5" class="text-center">No hay registros para mostrar.</td>
+                                    <td colspan="5" class="text-center">
+                                        No hay registros para mostrar.
+                                    </td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>

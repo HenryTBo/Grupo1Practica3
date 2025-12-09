@@ -7,31 +7,24 @@
     margin-top: 40px;
 }
 
-
 .consulta-inner {
     padding: 30px 40px;
 }
 
-
-.consulta-title {
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #2c3e50; 
+.consulta-top-bar {
+    height: 20px;
+    background-color: #d1d1d1;
+    border-radius: 10px 10px 0 0;
 }
 
+.consulta-table thead {
+    background-color: #f1f1f1;
+}
 
 .consulta-table th,
 .consulta-table td {
-    border-color: #bfbfbf !important;
-}
-
-.consulta-table th {
-    font-weight: 600;
-}
-
-
-.table-light {
-    background-color: #f8f9fa !important;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .consulta-title-box {

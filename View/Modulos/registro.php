@@ -2,15 +2,13 @@
 include_once __DIR__ . '/../layout.php';
 include_once __DIR__ . '/../../Controller/registroController.php';
 
-
 $pendientes = ObtenerComprasPendientes();
-
 
 $error = isset($_GET['error']) ? $_GET['error'] : '';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <?php showCss(); ?>
 <link href="../css/estilos.css" rel="stylesheet" />
@@ -37,7 +35,6 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
                     </div>
                 <?php endif; ?>
 
-                
                 <form method="POST" action="../../Controller/registroController.php" id="formAbono">
 
                     <input type="hidden" name="accion" value="abonar">
@@ -47,38 +44,34 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
                         <label class="form-label fw-bold">Compra</label>
 
                         <div class="d-flex justify-content-center gap-3">
-
                             <select name="Compra" id="Compra" class="form-select w-50" required>
                                 <option value="">Seleccione...</option>
-
                                 <?php foreach ($pendientes as $fila): ?>
                                     <option value="<?= $fila['IdCompra'] ?>">
                                         <?= $fila['IdCompra'] . ' - ' . $fila['Descripcion'] ?>
                                     </option>
                                 <?php endforeach; ?>
-
                             </select>
 
-                           
                             <button type="button" id="btnConsultarSaldo" class="btn btn-secondary">
                                 Consultar
                             </button>
                         </div>
                     </div>
 
-                    
+                    <!-- SALDO ANTERIOR -->
                     <div class="mb-3 text-center">
                         <label class="form-label fw-bold">Saldo Anterior</label>
                         <input type="text" id="Saldo" name="Saldo" class="form-control w-50 mx-auto" readonly>
                     </div>
 
-                    
+                    <!-- ABONO -->
                     <div class="mb-3 text-center">
                         <label class="form-label fw-bold">Abono</label>
-                        <input type="number" step="0.01" min="0" name="Abono" id="Abono" class="form-control w-50 mx-auto" required>
+                        <input type="number" step="0.01" min="0" name="Abono" id="Abono"
+                               class="form-control w-50 mx-auto" required>
                     </div>
 
-                    
                     <div class="text-center mt-4">
                         <button type="submit" name="btnAbonar" class="btn btn-primary w-50">
                             Abonar
@@ -96,7 +89,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
 <?php showJs(); ?>
 
 <script>
-
+// Consulta de saldo por AJAX
 document.getElementById('btnConsultarSaldo').addEventListener('click', function () {
     const id = document.getElementById('Compra').value;
     const saldoInput = document.getElementById('Saldo');
@@ -121,7 +114,7 @@ document.getElementById('btnConsultarSaldo').addEventListener('click', function 
         });
 });
 
-
+// Validaciones antes de enviar el formulario
 document.getElementById('formAbono').addEventListener('submit', function (e) {
     const saldo = parseFloat(document.getElementById('Saldo').value || '0');
     const abono = parseFloat(document.getElementById('Abono').value || '0');
@@ -147,3 +140,4 @@ document.getElementById('formAbono').addEventListener('submit', function (e) {
 
 </body>
 </html>
+

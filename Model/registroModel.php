@@ -10,7 +10,7 @@ function ObtenerComprasPendientesModel()
 
     $datos = [];
     while ($row = $resultado->fetch_assoc()) {
-        $datos[] = $row; 
+        $datos[] = $row;
     }
 
     $resultado->free();
@@ -50,10 +50,12 @@ function RegistrarAbonoModel($idCompra, $monto)
         $context->query($sql);
 
         CloseConnection($context);
-        return null; 
+        // null = todo bien
+        return null;
     } catch (mysqli_sql_exception $e) {
         $msg = $e->getMessage();
         CloseConnection($context);
-        return $msg; 
+        // devolvemos el mensaje de error para mostrarlo en la vista
+        return $msg;
     }
 }
